@@ -110,8 +110,8 @@ static void usage(const char *prog)
 
 int main(int argc, char **argv)
 {
-	const char *url = "ws://localhost:8080/ws";
-    struct ev_loop *loop = EV_DEFAULT;
+    const char *url = "ws://localhost:8080/ws";
+    struct ev_loop *loop = ev_loop_new(EVFLAG_AUTO);
     struct ev_signal signal_watcher;
 	int ping_interval = 10;	/* second */
     struct uwsc_client *cl;
@@ -147,7 +147,8 @@ int main(int argc, char **argv)
     ev_signal_start(loop, &signal_watcher);
 
     ev_run(loop, 0);
-
+    
+    ev_signal_stop(loop, &signal_watcher);
     free(cl);
     
     return 0;
