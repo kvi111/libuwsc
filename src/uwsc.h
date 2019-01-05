@@ -96,6 +96,7 @@ struct uwsc_client {
     int ntimeout;           /* Number of timeouts */
     char key[256];          /* Sec-WebSocket-Key */
     void *ssl;              /* Context wrap of openssl, wolfssl and mbedtls */
+    void *tag;
 
     void (*onopen)(struct uwsc_client *cl);
     void (*set_ping_interval)(struct uwsc_client *cl, int interval);
