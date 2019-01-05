@@ -116,5 +116,5 @@ struct uwsc_client {
  *  @ping_interval: ping interval
  */
 struct uwsc_client *uwsc_new(struct ev_loop *loop, const char *url, int ping_interval);
-
+void uwsc_free(struct uwsc_client *cl);
 #endif
