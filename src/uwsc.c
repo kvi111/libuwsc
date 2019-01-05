@@ -32,7 +32,7 @@
 #include "utils.h"
 #include "base64.h"
 
-static void uwsc_free(struct uwsc_client *cl)
+void uwsc_free(struct uwsc_client *cl)
 {
     ev_timer_stop(cl->loop, &cl->timer);
     ev_io_stop(cl->loop, &cl->ior);
